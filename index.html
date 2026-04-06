@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FormIQ — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #060810;
+      --bg2:       #0A0D18;
+      --surface:   #0D1929;
+      --border:    #1A2535;
+      --teal:      #00E5FF;
+      --green:     #34C759;
+      --muted:     #3A5068;
+      --text:      #C8D8E8;
+      --textdim:   #6A8AA0;
+      --textfaint: #2E4055;
+      --mono:      'DM Mono', 'Courier New', monospace;
+      --serif:     'DM Serif Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated background grid ──────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow blob behind content */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,229,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Header ────────────────────────────────────────────────── */
+    header {
+      padding: 60px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 52px;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      margin-bottom: 8px;
+    }
+
+    .logo-form {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .logo-iq {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--teal);
+      letter-spacing: -1px;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(0,229,255,0.35);
+    }
+
+    .logo-badge {
+      display: inline-block;
+      margin-left: 14px;
+      padding: 4px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--textdim);
+      vertical-align: middle;
+      position: relative;
+      top: -6px;
+    }
+
+    .header-sub {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--textdim);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* ── Section ───────────────────────────────────────────────── */
+    section {
+      margin-bottom: 44px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    section:nth-child(2)  { animation-delay: 0.10s; }
+    section:nth-child(3)  { animation-delay: 0.18s; }
+    section:nth-child(4)  { animation-delay: 0.26s; }
+    section:nth-child(5)  { animation-delay: 0.34s; }
+    section:nth-child(6)  { animation-delay: 0.42s; }
+    section:nth-child(7)  { animation-delay: 0.50s; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    .section-label .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── Intro card ────────────────────────────────────────────── */
+    .intro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 8px;
+      padding: 20px 24px;
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+
+    /* ── Data list ─────────────────────────────────────────────── */
+    .data-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .data-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+
+    .data-item:hover { border-color: rgba(0,229,255,0.25); }
+
+    .data-item .icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,229,255,0.07);
+      border: 1px solid rgba(0,229,255,0.15);
+      border-radius: 6px;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
+    .data-item .content {}
+
+    .data-item .item-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    .data-item .item-body {
+      font-size: 12.5px;
+      color: var(--textdim);
+      line-height: 1.65;
+    }
+
+    /* ── "We do NOT" list ──────────────────────────────────────── */
+    .not-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .not-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(52,199,89,0.04);
+      border: 1px solid rgba(52,199,89,0.12);
+      border-radius: 8px;
+      font-size: 12.5px;
+      color: var(--textdim);
+      line-height: 1.65;
+      transition: border-color 0.2s;
+    }
+
+    .not-item:hover { border-color: rgba(52,199,89,0.25); }
+
+    .not-item .check {
+      width: 18px;
+      height: 18px;
+      background: rgba(52,199,89,0.15);
+      border: 1px solid rgba(52,199,89,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 10px;
+      color: var(--green);
+    }
+
+    /* ── Info rows ─────────────────────────────────────────────── */
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-row .label { color: var(--textdim); }
+    .info-row .value { color: var(--text); text-align: right; }
+    .info-row .value a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .info-row .value a:hover { text-decoration: underline; }
+
+    /* ── Notice cards ──────────────────────────────────────────── */
+    .notice {
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--textdim);
+    }
+
+    .notice.neutral {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .notice.warning {
+      background: rgba(255,149,0,0.05);
+      border: 1px solid rgba(255,149,0,0.15);
+      color: #CC8800;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      animation: fadeUp 0.5s 0.6s ease both;
+    }
+
+    .footer-left {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--textfaint);
+    }
+
+    .footer-right {
+      font-size: 10px;
+      color: var(--textfaint);
+      letter-spacing: 1px;
+    }
+
+    .teal { color: var(--teal); }
+    .green { color: var(--green); }
+
+    /* ── Animations ────────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 540px) {
+      .logo-form, .logo-iq { font-size: 38px; }
+      .logo-badge { display: none; }
+      .info-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+      .info-row .value { text-align: left; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ──────────────────────────────────────────────── -->
+    <header>
+      <div class="logo-row">
+        <span class="logo-form">Form</span><span class="logo-iq">IQ</span>
+        <span class="logo-badge">PRIVACY POLICY</span>
+      </div>
+      <p class="header-sub">AI-Powered Form Coaching &nbsp;·&nbsp; Android</p>
+    </header>
+
+    <!-- ── INTRO ───────────────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Overview</div>
+      <div class="intro-card">
+        FormIQ is designed with privacy as a default, not an afterthought.
+        All movement analysis happens entirely on your device using MediaPipe.
+        No video, no images, no biometric data ever leaves your phone.
+        This policy explains exactly what the app touches and why.
+      </div>
+    </section>
+
+    <!-- ── DATA WE COLLECT ─────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Data we access on your device</div>
+      <div class="data-list">
+
+        <div class="data-item">
+          <div class="icon">📷</div>
+          <div class="content">
+            <div class="item-title">Camera</div>
+            <div class="item-body">
+              Used in real-time to analyse exercise movement during a workout session.
+              Camera frames are processed in memory only — no video or images are
+              recorded, stored, or transmitted off the device at any point.
+            </div>
+          </div>
+        </div>
+
+        <div class="data-item">
+          <div class="icon">🦴</div>
+          <div class="content">
+            <div class="item-title">Pose landmark data</div>
+            <div class="item-body">
+              33 body keypoints per frame are computed on-device using MediaPipe Tasks Vision.
+              These coordinates exist only in memory during an active session.
+              They are never stored, never transmitted, and discarded immediately
+              after each frame is processed.
+            </div>
+          </div>
+        </div>
+
+        <div class="data-item">
+          <div class="icon">📊</div>
+          <div class="content">
+            <div class="item-title">Workout session data</div>
+            <div class="item-body">
+              Rep counts, range-of-motion metrics, form scores, and set summaries
+              are stored locally on your device using MMKV (a local key-value store).
+              This data never leaves your phone and is not backed up to any
+              external service.
+            </div>
+          </div>
+        </div>
+
+        <div class="data-item">
+          <div class="icon">📐</div>
+          <div class="content">
+            <div class="item-title">Body measurements <span style="font-size:10px;color:var(--textdim);font-weight:300">(body scan feature only)</span></div>
+            <div class="item-body">
+              If you use the body scan feature, estimated measurements are stored
+              locally on your device only. They are not transmitted to any server
+              and not shared with any third party.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── DATA WE DO NOT COLLECT ──────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Data we do <em style="font-style:normal;color:#fff">not</em> collect</div>
+      <div class="not-list">
+        <div class="not-item">
+          <div class="check">✓</div>
+          <span>We do <strong style="color:var(--text)">not</strong> collect names, email addresses, phone numbers,
+          or any personally identifiable information.</span>
+        </div>
+        <div class="not-item">
+          <div class="check">✓</div>
+          <span>We do <strong style="color:var(--text)">not</strong> use analytics SDKs, crash-reporting services,
+          or advertising SDKs of any kind.</span>
+        </div>
+        <div class="not-item">
+          <div class="check">✓</div>
+          <span>We do <strong style="color:var(--text)">not</strong> share any data — collected or derived —
+          with any third party, ever.</span>
+        </div>
+        <div class="not-item">
+          <div class="check">✓</div>
+          <span>We do <strong style="color:var(--text)">not</strong> use cloud processing.
+          All AI inference runs locally on your device using MediaPipe.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHILDREN ─────────────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Children</div>
+      <div class="notice warning">
+        FormIQ is not directed at children under the age of 13.
+        We do not knowingly collect any information from children under 13.
+        If you believe a child under 13 has provided information through the app,
+        please contact us and we will address it promptly.
+      </div>
+    </section>
+
+    <!-- ── PERMISSIONS ──────────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Android permissions used</div>
+      <div class="data-list">
+        <div class="data-item">
+          <div class="icon">🎥</div>
+          <div class="content">
+            <div class="item-title">android.permission.CAMERA</div>
+            <div class="item-body">
+              Required to stream live frames for pose detection. Used only while
+              a workout session is active on screen. The app does not access the
+              camera in the background.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── APP DETAILS ──────────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>App &amp; developer details</div>
+      <div class="notice neutral">
+        <div class="info-row">
+          <span class="label">App name</span>
+          <span class="value">FormIQ</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Developer</span>
+          <span class="value">Chiranjivee Saksham</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Contact email</span>
+          <span class="value"><a href="mailto:chiranjivee960@gmail.com">chiranjivee960@gmail.com</a></span>
+        </div>
+        <div class="info-row">
+          <span class="label">Platform</span>
+          <span class="value">Android (Google Play)</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Last updated</span>
+          <span class="value teal">06 April 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHANGES ──────────────────────────────────────────────── -->
+    <section>
+      <div class="section-label"><span class="dot"></span>Changes to this policy</div>
+      <div class="notice neutral">
+        If this policy changes, the updated version will be published at this URL
+        with a revised "Last updated" date. Continued use of the app after a
+        policy change constitutes acceptance of the updated policy.
+        For questions, email <a href="mailto:chiranjivee960@gmail.com" style="color:var(--teal)">chiranjivee960@gmail.com</a>.
+      </div>
+    </section>
+
+    <!-- ── FOOTER ───────────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-left">FORMIQ &nbsp;·&nbsp; PRIVACY POLICY &nbsp;·&nbsp; v1.0</div>
+      <div class="footer-right">ALL PROCESSING ON-DEVICE &nbsp;·&nbsp; NO DATA LEAVES YOUR PHONE</div>
+    </footer>
+
+  </div>
+</body>
+</html>
